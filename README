@@ -1,0 +1,27 @@
+sendfakekey
+===========
+
+Written by Peter Ebden <peter.ebden@gmail.com>
+
+This is a bit of a mashup of xsendkey (which can be found at
+http://people.csail.mit.edu/adonovan/hacks/xsendkey.html) and libfakekey
+(http://matchbox-project.org). libfakekey is included for its cunning
+keyboard remapping tricks; when a key is not on the physical keyboard
+there won't be a keycode associated with its keysym so you can't send it
+to X. libfakekey fixes this by adding new keysym mappings as needed. However,
+its use of XTestFakeKeyEvent doesn't seem to work for me; I don't seem
+to get the characters appearing when it's run from some background app
+(particularly xbindkeys). This is where xsendkey comes in, which I have
+copied a bunch of code from which detects the currently focused window
+and sends events directly through XSendEvent.
+
+All of this seems to work for my test case which is making Alt+4 send a 
+sterling sign to aid my survival in the UK with a NZ (US) keyboard.
+
+There are various extensions that could be made here; the most obvious
+being dealing with modifier keys. Currently I haven't bothered because
+I don't need them, and I'm hoping to avoid creeping featureitis in this case.
+
+
+This project is licensed under the GNU GPLv3. See the included
+COPYING file for the text of the license.
