@@ -22,6 +22,10 @@ There are various extensions that could be made here; the most obvious
 being dealing with modifier keys. Currently I haven't bothered because
 I don't need them, and I'm hoping to avoid creeping featureitis in this case.
 
+I haven't gotten around to doing makefiles yet, but this can be easily built
+via something along the lines of the following:
+gcc sendfakekey.c -o sendfakekey -lfakekey
+Obviously one must have libfakekey installed already for this to work.
 
 This project is licensed under the GNU GPLv3. See the included
 COPYING file for the text of the license.
